@@ -13,6 +13,7 @@ let csl_fetches = csl_projects
 	.map(p=>get_threats(p.Id));
 
 Promise.all(csl_fetches).then(responses => {
+  let i = 0;
   for (i in csl_projects){
     let p = csl_projects[i];  
     let group_by_risk = _.groupBy(responses[i].Data,"ActualRiskName");
