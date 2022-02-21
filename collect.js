@@ -1,6 +1,6 @@
-const fetch = require('node-fetch');
-const fs = require('fs');
-const _ = require('underscore');
+import fetch from 'node-fetch';
+import fs from 'fs';
+import _ from 'underscore'
 const BEARER_TOKEN = process.env.TM_TOKEN || '';
 const TENANT = process.env.TM_TENANT || '';
 
@@ -36,7 +36,7 @@ function optlength(v,p){
   return (v[p])?v[p].length:0;
 }
 function get_projects(){
-  res = fetch("https://"+TENANT+".threatmodeler.net/api/projects/smartfilter", {
+  let res = fetch("https://"+TENANT+".threatmodeler.net/api/projects/smartfilter", {
     "headers": {
       "accept": "application/json",
       "accept-language": "en",
